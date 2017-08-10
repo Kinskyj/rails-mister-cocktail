@@ -10,12 +10,12 @@
     <div class="row">
       <% @cocktails.each do |cocktail| %>
       <% img_number = (1..10).to_a.sample %>
-        <div class="col-xs-12 col-sm-4">
+        <div class="col-xs-12 col-sm-4 kill-padding">
           <!-- <%= link_to "More info", cocktail_path(cocktail) %> -->
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "cocktail_#{img_number}.jpeg" %>');">
             <div class="card-description">
               <h2><%= cocktail.name %></h2>
-              <p><%= cocktail.doses.count %> ingrediends</p>
+              <p><%= cocktail.doses.count %> ingredients</p>
             </div>
             <%= link_to "", cocktail_path(cocktail), {class: "card-link"} %>
           </div>
