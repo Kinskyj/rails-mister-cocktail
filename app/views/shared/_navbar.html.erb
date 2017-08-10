@@ -1,0 +1,20 @@
+<div class="navbar-wagon">
+  <!-- Logo -->
+
+  <%= link_to root_path do %>
+    <%= image_tag "logo.png", {class: "navbar-wagon-brand"}  %>
+  <% end %>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+  <%= link_to "Add a cocktail", new_cocktail_path, {class: "navbar-wagon-item navbar-wagon-link" } %>
+
+    <!-- Profile picture -->
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+      </div>
+    </div>
+  </div>
+</div>
