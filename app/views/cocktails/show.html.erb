@@ -1,0 +1,30 @@
+<%= @cocktail.name %>
+
+<ul>
+<% @doses.each do |dose| %>
+  <li>
+    <%= dose.ingredient.name %>
+    <%= dose.description %>
+    <%= link_to "Delete dose", dose_path(dose), :method => 'delete'%>
+  </li>
+  <% end %>
+</ul>
+
+<h2>Add a dose</h2>
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+
+ <!--  <% if @dose.errors.any? %>
+    <ul>
+      <% @dose.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+    <% end %> -->
+
+  <%= f.input :ingredient_id, label: "Ingredient", collection: Ingredient.all %>
+  <%= f.input :description, label: "Quantity required", collection: ['1 oz', '2 oz', '3 oz', '4 oz', '5 oz', '6 oz' ] %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "Home", root_path %>
