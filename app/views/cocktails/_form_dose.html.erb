@@ -1,5 +1,5 @@
 <%= simple_form_for [@cocktail, @dose] do |f| %>
   <%= f.input :ingredient_id, label: "Ingredient", collection: Ingredient.all %>
   <%= f.input :description, label: "Quantity required", collection: ['1 oz', '2 oz', '3 oz', '4 oz', '5 oz', '6 oz' ] %>
-  <%= f.submit %>
+  <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>

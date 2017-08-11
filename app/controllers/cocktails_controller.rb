@@ -1,8 +1,8 @@
 class CocktailsController < ApplicationController
-  before_action :find_cocktail, only: [:show]
+  before_action :find_cocktail, only: [:show, :update]
 
   def index
-    @cocktails = Cocktail.all
+    @cocktails = Cocktail.all.sort_by { |cocktail| cocktail.votes }.reverse
   end
 
   def show
@@ -24,6 +24,12 @@ class CocktailsController < ApplicationController
     end
   end
 
+  def update
+    @cocktail.votes += 1
+    @cocktail.save
+    redirect_to cocktails_path
+  end
+
   private
 
   def find_cocktail
@@ -31,7 +37,7 @@ class CocktailsController < ApplicationController
   end
 
   def list_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :photo, :photo_cache)
   end
 end
 
